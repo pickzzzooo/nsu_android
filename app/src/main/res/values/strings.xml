@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">nsu_android_project</string>
+    <string name="TRAIN_API_KEY">466f4a444174696e37374c4f677474</string>
 </resources>
