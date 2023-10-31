@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 Integer START_INDEX = 0;
                 Integer END_INDEX = 10;
                 String subwayNm = "1호선";
-                String queryUrl = "http://swopenapi.seoul.go.kr/api/subway/sample/json/realtimeStationArrival/1/1/1호선";
-                //String queryUrl = "http://swopenAPI.seoul.go.kr/api/subway/" + TRAIN_API_KEY + "/realtimePosition/0/5/1호선";
+                String queryUrl = "http://swopenAPI.seoul.go.kr/api/subway/" + TRAIN_API_KEY + "/json/realtimePosition/0/1/1호선";
                 try {
                     URL url = new URL(queryUrl);
                     InputStream is = url.openStream();
@@ -65,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
                     Log.v("asdf", "error");
                     e.printStackTrace();
                 }
-
-
             }
         }.start();
     }
