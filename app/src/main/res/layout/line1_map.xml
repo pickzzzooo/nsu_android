@@ -8,6 +8,7 @@
         android:layout_width="411dp"
         android:layout_height="740dp"
         android:orientation="vertical"
+        android:id="@+id/line1_container"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

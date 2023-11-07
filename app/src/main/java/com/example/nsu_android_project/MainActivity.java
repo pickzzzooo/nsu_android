@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.nsu_android_project.LineMaps.Line1MapActivity;
+
 
 public class MainActivity extends AppCompatActivity {
     private Button go_train_page_btn;

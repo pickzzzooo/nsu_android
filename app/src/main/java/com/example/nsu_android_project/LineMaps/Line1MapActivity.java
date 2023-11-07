@@ -23,7 +23,7 @@ public class Line1MapActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.line1_map);
         text = (TextView) findViewById(R.id.textView);
         getData();
         context = this;
@@ -54,8 +54,6 @@ public class Line1MapActivity extends Activity {
                         buffer.append(line + "\n");
                         line = reader.readLine();
                     }
-
-                    JSONObject dataJSON = new JSONObject();
 
 
                     //로그 출력
