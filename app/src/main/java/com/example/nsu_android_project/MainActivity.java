@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.nsu_android_project.LineMaps.Line1MapActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         go_train_page_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), TrainMapActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LineSearchActivity.class);
                 startActivity(intent);
             }
         });

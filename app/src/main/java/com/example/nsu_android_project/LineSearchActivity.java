@@ -1,14 +1,12 @@
-package com.example.nsu_android_project.LineMaps;
+package com.example.nsu_android_project;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import androidx.annotation.Nullable;
-
-import com.example.nsu_android_project.R;
+import android.view.ScaleGestureDetector;
 
 import org.json.JSONObject;
 
@@ -16,17 +14,42 @@ import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-
-public class Line1MapActivity extends Activity {
-    public static Context context;
+public class LineSearchActivity extends Activity {
     TextView text;
+    private ScaleGestureDetector scaleGestureDetector;
+    private float mScaleFactor = 1.0f;
+    private LinearLayout search_page_container;
+
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.line1_map);
-        text = (TextView) findViewById(R.id.textView);
+        setContentView(R.layout.line_search);
+
+        search_page_container = (LinearLayout) findViewById(R.id.search_page_container);
+
+        // 핀치 줌 호출
+        scaleGestureDetector = new ScaleGestureDetector(this, new ScaleListener());
+
         getData();
-        context = this;
+    }
+
+    public boolean onTouchEvent(MotionEvent motionEvent){
+        scaleGestureDetector.onTouchEvent(motionEvent);
+        return true;
+    }
+
+    private class ScaleListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+        @Override
+        public boolean onScale(ScaleGestureDetector scaleGestureDetector){
+            mScaleFactor *= scaleGestureDetector.getScaleFactor();
+
+            // 최대 10배, 최소 10배 줌 한계 설정
+            mScaleFactor = Math.max(0.1f,
+                    Math.min(mScaleFactor, 10.0f));
+            search_page_container.setScaleX(mScaleFactor);
+            search_page_container.setScaleY(mScaleFactor);
+            return true;
+        }
     }
 
     public void getData () {
@@ -55,6 +78,8 @@ public class Line1MapActivity extends Activity {
                         line = reader.readLine();
                     }
 
+                    JSONObject dataJSON = new JSONObject();
+
 
                     //로그 출력
                     Log.v("asdf", "성공");
@@ -68,3 +93,4 @@ public class Line1MapActivity extends Activity {
         }.start();
     }
 }
+
