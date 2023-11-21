@@ -15,7 +15,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:weightSum="10"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#D3D3D3"
+        >
 
 
         <LinearLayout
@@ -57,14 +59,18 @@
                 android:layout_height="match_parent"
                 android:layout_weight="7"
                 android:orientation="vertical"
-                android:weightSum="10">
+                android:weightSum="10"
+                >
 
+                <!-- 레이아웃 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:orientation="horizontal"
                     android:layout_weight="0.8"
-                    android:weightSum="10">
+                    android:weightSum="10"
+                    android:background="@drawable/border_edge"
+                    >
                     <EditText
                         android:id="@+id/serach_edit_text"
                         android:layout_width="0dp"
@@ -90,39 +96,263 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.8"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-                    <Button
-                        android:id="@+id/book_mark_btn"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="2"
-                        android:text="북마크" />
+                    android:layout_weight="0.15"
+                    android:orientation="vertical">
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1.6"
-                    android:weightSum="10"
-                    android:orientation="horizontal">
+                    android:layout_weight="3.2"
+                    android:orientation="vertical"
+                    android:weightSum="3.2"
+                    android:background="@drawable/border_edge">
+
                     <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.8"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+                        <ImageButton
+                            android:id="@+id/imageButton"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:src="@drawable/star"
+                            android:backgroundTint="@color/white"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.6"
+                        android:weightSum="10"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:orientation="vertical"/>
+                        <TextView
+                            android:id="@+id/line_name_txt"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="6"
+                            android:gravity="center"
+                            android:background="@drawable/circle_btn"
+                            android:text="성환역"
+                            android:textSize="18dp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.15"
+                    android:orientation="vertical"
+                    > </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="5.7"
+                    android:orientation="vertical"
+                    android:weightSum="10"
+                    android:background="@drawable/border_edge">
+
+                    <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    android:layout_weight="1.4">
+
+                    <TextView
+                        android:id="@+id/arriveTxt"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="8"
+                        android:text=" 도착 정보"
+                        android:textSize="18dp"
+                        android:textAlignment="textStart"
+                        android:gravity="center"
+                        android:textStyle="bold"/>
+
+                    <ImageButton
+                        android:id="@+id/imageButton2"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
-                        android:orientation="vertical"/>
-                    <TextView
-                        android:id="@+id/line_name_txt"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="6"
-                        android:gravity="center"
-                        android:background="@drawable/circle_btn"
-                        android:text="성환역"
-                        android:textSize="18dp"
-                        android:textStyle="bold"/>
+                        android:src="@drawable/refresh"
+                        android:backgroundTint="@color/white"/>
                 </LinearLayout>
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.15"
+                        android:background="#D3D3D3"
+                        />
+                    <!-- 도착정보-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="8.45"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:weightSum="10"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/downDirTxt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="2"
+                                    android:gravity="center"
+                                    android:text="~~ 방면"
+                                    android:textStyle="bold"
+                                    android:background="@drawable/down_edge"/>
+
+                                <TextView
+                                    android:id="@+id/infoTxt1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.9"
+                                    android:gravity="center"
+                                    android:text="info"
+                                    android:textStyle="bold"/>
+                                <!-- 구분 선 -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.1"
+                                    android:weightSum="10"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal">
+                                    </LinearLayout>
+
+                                    <View
+                                        android:id="@+id/view2"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="8"
+                                        android:background="@color/black"
+                                        />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/infoTxt2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.9"
+                                    android:gravity="center"
+                                    android:text="info"
+                                    android:textStyle="bold"/>
+
+                                <!-- 구분 선 -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.1"
+                                    android:weightSum="10"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal">
+                                    </LinearLayout>
+
+                                    <View
+                                        android:id="@+id/view3"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="8"
+                                        android:background="@color/black"
+                                        />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/infoTxt3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.9"
+                                    android:gravity="center"
+                                    android:text="info"
+                                    android:textStyle="bold"/>
+
+                                <!-- 구분 선 -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="0.1"
+                                    android:weightSum="10"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal">
+                                    </LinearLayout>
+
+                                    <View
+                                        android:id="@+id/view4"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="8"
+                                        android:background="@color/black"
+                                        />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/infoTxt4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1.9"
+                                    android:gravity="center"
+                                    android:text="info"
+                                    android:textStyle="bold"/>
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
 
             </LinearLayout>
         </LinearLayout>
