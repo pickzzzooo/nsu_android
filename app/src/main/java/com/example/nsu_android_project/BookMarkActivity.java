@@ -4,9 +4,13 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import org.json.JSONObject;
 
@@ -16,57 +20,38 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class BookMarkActivity extends Activity {
-    TextView dataTxt;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.bookmark_activity);
-        dataTxt = findViewById(R.id.dataTxt);
 
-        new GetDataTask().execute();
-    }
+        Button open_btn = (Button) findViewById(R.id.open_btn);
+        Button close_btn = (Button) findViewById(R.id.close_btn);
 
-    private class GetDataTask extends AsyncTask<Void, Void, String> {
-        @Override
-        protected String doInBackground(Void... params) {
-            try {
-                String TRAIN_API_KEY = getString(R.string.TRAIN_API_KEY);
-                String TYPE = "/json/";
-                String START_INDEX = "0/";
-                String END_INDEX = "1/";
-                String subwayNm = "1호선";
-                String queryUrl = "http://swopenAPI.seoul.go.kr/api/subway/" + TRAIN_API_KEY + TYPE + "realtimePosition/"
-                        + START_INDEX + END_INDEX + subwayNm;
+        TextView textView = (TextView) findViewById(R.id.asdf);
+        TextView textView2 = (TextView) findViewById(R.id.qwer);
 
-                URL url = new URL(queryUrl);
-                InputStream is = url.openStream();
-                InputStreamReader isr = new InputStreamReader(is);
-                BufferedReader reader = new BufferedReader(isr);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer);
 
-                StringBuilder buffer = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    buffer.append(line).append("\n");
+        open_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!drawer.isDrawerOpen(Gravity.LEFT)){
+                    drawer.openDrawer(Gravity.LEFT);
                 }
+            }
+        });
 
-                return buffer.toString();
-            } catch (Exception e) {
-                Log.v("asdf", "error");
-                e.printStackTrace();
-                return null;
+        close_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(drawer.isDrawerOpen(Gravity.LEFT)){
+                    drawer.closeDrawers();
+                }
             }
-        }
-        // 로그 확인
-        @Override
-        protected void onPostExecute(String result) {
-            if (result != null) {
-                dataTxt.setText(result);
-                Log.v("asdf", "성공");
-            } else {
-                Log.v("asdf", "error");
-            }
-        }
+        });
     }
+
 }
 

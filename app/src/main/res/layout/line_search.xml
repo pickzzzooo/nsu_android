@@ -83,7 +83,7 @@
                         />
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/search_btn"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -149,6 +149,29 @@
                             android:textStyle="bold"/>
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.8"
+                        android:weightSum="2"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/time_sheet_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:backgroundTint="#808080"
+                            android:text="도착 시간표" />
+
+                        <Button
+                            android:id="@+id/map_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:backgroundTint="#808080"
+                            android:text="역 지도" />
+                    </LinearLayout>
 
 
                 </LinearLayout>
@@ -185,7 +208,7 @@
                         android:textStyle="bold"/>
 
                     <ImageButton
-                        android:id="@+id/imageButton2"
+                        android:id="@+id/refresh_btn"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
@@ -225,7 +248,7 @@
                                     android:layout_height="0dp"
                                     android:layout_weight="2"
                                     android:gravity="center"
-                                    android:text="~~ 방면"
+                                    android:text="시청 방면"
                                     android:textStyle="bold"
                                     android:background="@drawable/down_edge"/>
 
@@ -236,6 +259,7 @@
                                     android:layout_weight="1.9"
                                     android:gravity="center"
                                     android:text="info"
+                                    android:visibility="invisible"
                                     android:textStyle="bold"/>
                                 <!-- 구분 선 -->
                                 <LinearLayout
@@ -253,6 +277,7 @@
                                     </LinearLayout>
 
                                     <View
+                                        android:visibility="invisible"
                                         android:id="@+id/view2"
                                         android:layout_width="0dp"
                                         android:layout_height="match_parent"
@@ -267,6 +292,7 @@
                                     android:layout_height="0dp"
                                     android:layout_weight="1.9"
                                     android:gravity="center"
+                                    android:visibility="invisible"
                                     android:text="info"
                                     android:textStyle="bold"/>
 
@@ -288,6 +314,7 @@
                                     <View
                                         android:id="@+id/view3"
                                         android:layout_width="0dp"
+                                        android:visibility="invisible"
                                         android:layout_height="match_parent"
                                         android:layout_weight="8"
                                         android:background="@color/black"
@@ -301,6 +328,7 @@
                                     android:layout_weight="1.9"
                                     android:gravity="center"
                                     android:text="info"
+                                    android:visibility="invisible"
                                     android:textStyle="bold"/>
 
                                 <!-- 구분 선 -->
@@ -323,6 +351,7 @@
                                         android:layout_width="0dp"
                                         android:layout_height="match_parent"
                                         android:layout_weight="8"
+                                        android:visibility="invisible"
                                         android:background="@color/black"
                                         />
                                 </LinearLayout>
@@ -333,6 +362,7 @@
                                     android:layout_height="0dp"
                                     android:layout_weight="1.9"
                                     android:gravity="center"
+                                    android:visibility="invisible"
                                     android:text="info"
                                     android:textStyle="bold"/>
 
@@ -351,10 +381,11 @@
                                     android:layout_height="0dp"
                                     android:layout_weight="2"
                                     android:gravity="center"
-                                    android:text="~~ 방면"
+                                    android:text="남영 방면"
                                     android:textStyle="bold"
                                     android:background="@drawable/down_edge"/>
 
+                                <!-- 구분 선 -->
                                 <TextView
                                     android:id="@+id/infoTxt5"
                                     android:layout_width="match_parent"
@@ -362,8 +393,9 @@
                                     android:layout_weight="1.9"
                                     android:gravity="center"
                                     android:text="info"
-                                    android:textStyle="bold"/>
-                                <!-- 구분 선 -->
+                                    android:visibility="invisible"
+                                    android:textStyle="bold" />
+
                                 <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="0dp"
@@ -380,6 +412,7 @@
 
                                     <View
                                         android:id="@+id/view5"
+                                        android:visibility="invisible"
                                         android:layout_width="0dp"
                                         android:layout_height="match_parent"
                                         android:layout_weight="8"
@@ -394,6 +427,7 @@
                                     android:layout_weight="1.9"
                                     android:gravity="center"
                                     android:text="info"
+                                    android:visibility="invisible"
                                     android:textStyle="bold"/>
 
                                 <!-- 구분 선 -->
@@ -414,6 +448,7 @@
                                     <View
                                         android:id="@+id/view6"
                                         android:layout_width="0dp"
+                                        android:visibility="invisible"
                                         android:layout_height="match_parent"
                                         android:layout_weight="8"
                                         android:background="@color/black"
@@ -427,6 +462,7 @@
                                     android:layout_weight="1.9"
                                     android:gravity="center"
                                     android:text="info"
+                                    android:visibility="invisible"
                                     android:textStyle="bold"/>
 
                                 <!-- 구분 선 -->
@@ -446,6 +482,7 @@
 
                                     <View
                                         android:id="@+id/view7"
+                                        android:visibility="invisible"
                                         android:layout_width="0dp"
                                         android:layout_height="match_parent"
                                         android:layout_weight="8"
@@ -459,6 +496,7 @@
                                     android:layout_weight="1.9"
                                     android:gravity="center"
                                     android:text="info"
+                                    android:visibility="invisible"
                                     android:textStyle="bold"/>
                             </LinearLayout>
                             </LinearLayout>

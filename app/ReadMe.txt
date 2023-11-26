@@ -18,6 +18,8 @@ to do list :
 log:
     // open api 설명서
     http://data.seoul.go.kr/dataList/OA-12601/A/1/datasetView.do
+    // 내 url
+    http://swopenapi.seoul.go.kr/api/subway/466f4a444174696e37374c4f677474/json/realtimePosition/0/5/1%ED%98%B8%EC%84%A0
 
     // 실시간 지하철 json 구조
     {"errorMessage":{
