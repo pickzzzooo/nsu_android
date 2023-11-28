@@ -13,6 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:weightSum="10"
+        android:background="#D3D3D3"
         app:layout_constraintTop_toTopOf="parent">
 
 
@@ -55,45 +56,1337 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="7"
+                android:weightSum="10"
+                android:background="@drawable/border_edge"
                 android:orientation="vertical">
 
-                <ScrollView
-                    android:id="@+id/scroll"
+                <!--- info_layout1-->
+                <TextView
+                    android:id="@+id/bookmark_txt1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="24dp"
+                    android:textAlignment="textStart"
+                    android:gravity="center"
+                    android:text=" 성환역"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:background="#9897A9" />
+                <LinearLayout
+                    android:id="@+id/info_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0"
+                    android:weightSum="10"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_height="0dp"
+                        android:layout_weight="1.4"
+                        android:orientation="horizontal">
 
-
-                            <TextView
-                                android:id="@+id/asdf"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="2"
-                                android:background="@color/black"
-                                android:text="즐겨찾기"
-                                android:gravity="center"
-                                android:textColor="@color/white"
-                                />
-
-                            <TextView
-                                android:id="@+id/qwer"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="2"
-                                android:background="@color/black"
-                                android:text="qwer"
-                                android:textColor="@color/white"
-                                android:layout_gravity="left"
-                                />
+                        <TextView
+                            android:id="@+id/info1_arriveTxt"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:text=" 도착 정보"
+                            android:textSize="18dp"
+                            android:textAlignment="textStart"
+                            android:gravity="center"
+                            android:textStyle="bold"/>
+                        <ImageButton
+                            android:id="@+id/info1_refresh_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:src="@drawable/refresh"
+                            android:backgroundTint="@color/white"/>
                     </LinearLayout>
-                </ScrollView>
+                    <View
+                        android:id="@+id/info1_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.15"
+                        android:background="#D3D3D3"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/info1_downDirTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="시청 방면"
+                                android:textStyle="bold"
+                                android:background="@drawable/down_edge"/>
+
+                            <TextView
+                                android:id="@+id/info1_infoTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:visibility="invisible"
+                                    android:id="@+id/info1_view2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info1_infoTxt2"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:visibility="invisible"
+                                android:text="info"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info1_view3"
+                                    android:layout_width="0dp"
+                                    android:visibility="invisible"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info1_book1_infoTxt3"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info1_view4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:visibility="invisible"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info1_infoTxt4"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:visibility="invisible"
+                                android:text="info"
+                                android:textStyle="bold"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/info1_upDirTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="남영 방면"
+                                android:textStyle="bold"
+                                android:background="@drawable/down_edge"/>
+
+                            <!-- 구분 선 -->
+                            <TextView
+                                android:id="@+id/info1_infoTxt5"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info1_view5"
+                                    android:visibility="invisible"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info1_infoTxt6"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info1_view6"
+                                    android:layout_width="0dp"
+                                    android:visibility="invisible"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info1_infoTxt7"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info1_view7"
+                                    android:visibility="invisible"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/info1_infoTxt8"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:background="#9897A9" />
+
+                <!--- info_layout2-->
+                <TextView
+                    android:id="@+id/bookmark_txt2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="24dp"
+                    android:textAlignment="textStart"
+                    android:gravity="center"
+                    android:text=" 성환역"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:background="#9897A9" />
+                <LinearLayout
+                    android:id="@+id/info2_layout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0"
+                    android:weightSum="10"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.4"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/info2_arriveTxt"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:text=" 도착 정보"
+                            android:textSize="18dp"
+                            android:textAlignment="textStart"
+                            android:gravity="center"
+                            android:textStyle="bold"/>
+                        <ImageButton
+                            android:id="@+id/info2_refresh_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:src="@drawable/refresh"
+                            android:backgroundTint="@color/white"/>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/info2_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.15"
+                        android:background="#D3D3D3"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/info2_downDirTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="시청 방면"
+                                android:textStyle="bold"
+                                android:background="@drawable/down_edge"/>
+
+                            <TextView
+                                android:id="@+id/info2_infoTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:visibility="invisible"
+                                    android:id="@+id/info2_view2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info2_infoTxt2"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:visibility="invisible"
+                                android:text="info"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info2_view3"
+                                    android:layout_width="0dp"
+                                    android:visibility="invisible"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info2_infoTxt3"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info2_view4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:visibility="invisible"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info2_infoTxt4"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:visibility="invisible"
+                                android:text="info"
+                                android:textStyle="bold"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/info2_upDirTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="남영 방면"
+                                android:textStyle="bold"
+                                android:background="@drawable/down_edge"/>
+
+                            <!-- 구분 선 -->
+                            <TextView
+                                android:id="@+id/info2_infoTxt5"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info2_view5"
+                                    android:visibility="invisible"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info2_infoTxt6"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info2_view6"
+                                    android:layout_width="0dp"
+                                    android:visibility="invisible"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info2_infoTxt7"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info2_view7"
+                                    android:visibility="invisible"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/info2_infoTxt8"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:background="#9897A9" />
+
+                <!--- info_layout3-->
+                <TextView
+                    android:id="@+id/bookmark_txt3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="24dp"
+                    android:textAlignment="textStart"
+                    android:gravity="center"
+                    android:text=" 성환역"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:background="#9897A9" />
+                <LinearLayout
+                    android:id="@+id/info3_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0"
+                    android:weightSum="10"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.4"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/info3_arriveTxt"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:text=" 도착 정보"
+                            android:textSize="18dp"
+                            android:textAlignment="textStart"
+                            android:gravity="center"
+                            android:textStyle="bold"/>
+                        <ImageButton
+                            android:id="@+id/info3_refresh_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:src="@drawable/refresh"
+                            android:backgroundTint="@color/white"/>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/info3_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.15"
+                        android:background="#D3D3D3"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/info3_downDirTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="시청 방면"
+                                android:textStyle="bold"
+                                android:background="@drawable/down_edge"/>
+
+                            <TextView
+                                android:id="@+id/info3_infoTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:visibility="invisible"
+                                    android:id="@+id/info3_view2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info3_infoTxt2"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:visibility="invisible"
+                                android:text="info"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info3_view3"
+                                    android:layout_width="0dp"
+                                    android:visibility="invisible"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info3_infoTxt3"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info3_view4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:visibility="invisible"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info3_infoTxt4"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:visibility="invisible"
+                                android:text="info"
+                                android:textStyle="bold"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/info3_upDirTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="남영 방면"
+                                android:textStyle="bold"
+                                android:background="@drawable/down_edge"/>
+
+                            <!-- 구분 선 -->
+                            <TextView
+                                android:id="@+id/info3_infoTxt5"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info3_view5"
+                                    android:visibility="invisible"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info3_infoTxt6"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info3_view6"
+                                    android:layout_width="0dp"
+                                    android:visibility="invisible"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info3_infoTxt7"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info3_view7"
+                                    android:visibility="invisible"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/info3_infoTxt8"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:background="#9897A9" />
+
+                <!--- info_layout4-->
+                <TextView
+                    android:id="@+id/bookmark_txt4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textSize="24dp"
+                    android:textAlignment="textStart"
+                    android:gravity="center"
+                    android:text=" 성환역"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:background="#9897A9" />
+                <LinearLayout
+                    android:id="@+id/info4_layout1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0"
+                    android:weightSum="10"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1.4"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/info4_arriveTxt"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="8"
+                            android:text=" 도착 정보"
+                            android:textSize="18dp"
+                            android:textAlignment="textStart"
+                            android:gravity="center"
+                            android:textStyle="bold"/>
+                        <ImageButton
+                            android:id="@+id/info4_refresh_btn"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:src="@drawable/refresh"
+                            android:backgroundTint="@color/white"/>
+                    </LinearLayout>
+                    <View
+                        android:id="@+id/info4_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.15"
+                        android:background="#D3D3D3"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/info4_downDirTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="시청 방면"
+                                android:textStyle="bold"
+                                android:background="@drawable/down_edge"/>
+
+                            <TextView
+                                android:id="@+id/info4_infoTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:visibility="invisible"
+                                    android:id="@+id/info4_view2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info4_infoTxt2"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:visibility="invisible"
+                                android:text="info"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info4_view3"
+                                    android:layout_width="0dp"
+                                    android:visibility="invisible"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info4_infoTxt3"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info4_view4"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:visibility="invisible"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info4_infoTxt4"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:visibility="invisible"
+                                android:text="info"
+                                android:textStyle="bold"/>
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:weightSum="10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/info4_upDirTxt1"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:gravity="center"
+                                android:text="남영 방면"
+                                android:textStyle="bold"
+                                android:background="@drawable/down_edge"/>
+
+                            <!-- 구분 선 -->
+                            <TextView
+                                android:id="@+id/info4_infoTxt5"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info4_view5"
+                                    android:visibility="invisible"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info4_infoTxt6"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info4_view6"
+                                    android:layout_width="0dp"
+                                    android:visibility="invisible"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/info4_infoTxt7"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+
+                            <!-- 구분 선 -->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="0.1"
+                                android:weightSum="10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/info4_view7"
+                                    android:visibility="invisible"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@color/black"
+                                    />
+                            </LinearLayout>
+                            <TextView
+                                android:id="@+id/info4_infoTxt8"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1.9"
+                                android:gravity="center"
+                                android:text="info"
+                                android:visibility="invisible"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.1"
+                    android:background="#9897A9" />
+
+
             </LinearLayout>
 
         </LinearLayout>
-
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

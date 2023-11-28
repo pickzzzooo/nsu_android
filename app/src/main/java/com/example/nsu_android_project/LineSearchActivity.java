@@ -2,12 +2,16 @@ package com.example.nsu_android_project;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -22,8 +26,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +40,7 @@ public class LineSearchActivity extends Activity {
     private Button search_btn;
     private Button time_sheet_btn;
     private Button map_btn;
+    private ImageButton bookmark_btn;
     private TextView line_name_txt;
     private EditText search_edit_txt;
     private ImageButton refresh_btn;
@@ -47,6 +54,7 @@ public class LineSearchActivity extends Activity {
         search_btn = (Button) findViewById(R.id.search_btn);
         time_sheet_btn = (Button) findViewById(R.id.time_sheet_btn);
         map_btn = (Button) findViewById(R.id.map_btn);
+        bookmark_btn = (ImageButton) findViewById(R.id.bookmark_btn);
         search_edit_txt = (EditText) findViewById(R.id.serach_edit_text);
         line_name_txt = (TextView ) findViewById(R.id.line_name_txt);
         refresh_btn = (ImageButton) findViewById(R.id.refresh_btn);
@@ -73,6 +81,23 @@ public class LineSearchActivity extends Activity {
                 findViewById(R.id.infoTxt8),
         };
 
+        //데이터 불러오기 / 객체생성
+        DBManager dbManager = new DBManager(getApplicationContext());
+
+        bookmark_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String searchTxt = search_edit_txt.getText().toString();
+                if (dbManager.bookMakrDataList.contains(searchTxt)){
+                    bookmark_btn.setBackgroundResource(R.drawable.button_normal);
+                    dbManager.removeData(getApplicationContext(), searchTxt);
+                } else {
+                    bookmark_btn.setBackgroundResource(R.drawable.button_pressed);
+                    dbManager.addData(getApplicationContext(), searchTxt);
+                }
+            }
+        });
+
         time_sheet_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,45 +119,20 @@ public class LineSearchActivity extends Activity {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                //1호선 리스트 객체 선언
-                Line1StanNmList line1StanNmList = new Line1StanNmList();
-                List<String> soyosanToGuroArr = line1StanNmList.SoyosanToGuroArr;
-                List<String> guroToSinchangArr = line1StanNmList.GuroToSinchangArr;
-                List<String> guroToIncheonArr = line1StanNmList.GuroToIncheonArr;
-
-                String lineNm = search_edit_txt.getText().toString();
-
-                txtInfoDataLoad(soyosanToGuroArr, lineNm);
-                txtInfoDataLoad(guroToSinchangArr, lineNm);
-                txtInfoDataLoad(guroToIncheonArr, lineNm);
-
-                for (int i = 2; i < infoTxtArr.length; i++) {infoTxtArr[i].setVisibility(View.INVISIBLE);}
-                for (int i = 0; i < infoViewArr.length; i++) {infoViewArr[i].setVisibility(View.INVISIBLE);}
-
-                new GetDataTask().execute();
+                clickInfoLoadEvent();
             }
         });
 
         search_btn.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
-                //1호선 리스트 객체 선언
-                Line1StanNmList line1StanNmList = new Line1StanNmList();
-                List<String> soyosanToGuroArr = line1StanNmList.SoyosanToGuroArr;
-                List<String> guroToSinchangArr = line1StanNmList.GuroToSinchangArr;
-                List<String> guroToIncheonArr = line1StanNmList.GuroToIncheonArr;
-
-                String lineNm = search_edit_txt.getText().toString();
-
-                txtInfoDataLoad(soyosanToGuroArr, lineNm);
-                txtInfoDataLoad(guroToSinchangArr, lineNm);
-                txtInfoDataLoad(guroToIncheonArr, lineNm);
-
-                for (int i = 2; i < infoTxtArr.length; i++) {infoTxtArr[i].setVisibility(View.INVISIBLE);}
-                for (int i = 0; i < infoViewArr.length; i++) {infoViewArr[i].setVisibility(View.INVISIBLE);}
-
-                new GetDataTask().execute();
+                String searchTxt = search_edit_txt.getText().toString();
+                if (dbManager.bookMakrDataList.contains(searchTxt)){
+                    bookmark_btn.setBackgroundResource(R.drawable.button_pressed);
+                } else {
+                    bookmark_btn.setBackgroundResource(R.drawable.button_normal);
+                }
+                clickInfoLoadEvent();
             }
         });
     }
@@ -243,9 +243,13 @@ public class LineSearchActivity extends Activity {
                     infoTxtArr[i].setVisibility(View.VISIBLE);
                 }
 
-                for(int ii = 0 ; ii < map.size(); ii++) {
-                    if(updn == 2){infoViewArr[ii].setVisibility(View.VISIBLE);}
-                    if(updn == 6){infoViewArr[ii + 3].setVisibility(View.VISIBLE);}
+                for (int ii = 0; ii < Math.min(map.size(), infoViewArr.length); ii++) {
+                    if (updn == 2) {
+                        infoViewArr[ii].setVisibility(View.VISIBLE);
+                    }
+                    if (updn == 6 && ii + 3 < infoViewArr.length) {
+                        infoViewArr[ii + 3].setVisibility(View.VISIBLE);
+                    }
                 }
                 i += 1;
             }
@@ -310,22 +314,23 @@ public class LineSearchActivity extends Activity {
                             String statnNm = index.getString("statnNm");
                             int lineInt = lineArr.indexOf(lineNm);
 
-                            for (int ii = 0; ii < 5 ; ii++) {
-                                if(lineArr.indexOf(statnNm) - ii < 1) {
-                                    if(lineArr.get(1).equals("소요산")){
-                                        continue;
+                            for (int ii = 0; ii < 6 ; ii++) {
+                                int currentIndexUp = lineInt + ii;
+                                int currentIndexDown = lineInt - ii;
+
+                                if (currentIndexUp >= 0 && currentIndexUp < lineArr.size()) {
+                                    if (statnNm.equals(lineArr.get(currentIndexUp))) {
+                                        if (index.getInt("updnLine") == 0) {
+                                            infoTxtBuilder(index, ii, upLineSortMap);
+                                        }
                                     }
                                 }
 
-                                if(statnNm.equals(lineArr.get(lineInt + ii))) {
-                                    if (index.getInt("updnLine") == 0){
-                                        infoTxtBuilder(index, ii, upLineSortMap);
-                                    }
-                                }
-
-                                if (statnNm.equals(lineArr.get(lineInt - ii))) {
-                                    if (index.getInt("updnLine") == 1){
-                                        infoTxtBuilder(index, ii, dnLineSortMap);
+                                if (currentIndexDown >= 0 && currentIndexDown < lineArr.size()) {
+                                    if (statnNm.equals(lineArr.get(currentIndexDown))) {
+                                        if (index.getInt("updnLine") == 1) {
+                                            infoTxtBuilder(index, ii, dnLineSortMap);
+                                        }
                                     }
                                 }
                             }
@@ -333,18 +338,21 @@ public class LineSearchActivity extends Activity {
                         //infotxt 정렬
                         displayInfoTxt(upLineSortMap, 2);
                         displayInfoTxt(dnLineSortMap, 6);
-
                     } else {
                         Log.v("asdf", "realtimePositionList 배열 존재하지 않음");
                     }
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Log.v("asdf", "JSON Error");
                 }
+
             } else {
                 Log.v("asdf", "Data Load Error");
             }
+
         }
+
 
     }
 }

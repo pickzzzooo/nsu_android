@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+
+    <item
+        android:drawable="@drawable/nsu_logo0"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo1"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo2"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo3"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo4"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo5"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo6"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo7"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo8"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo9"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo10"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo11"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo12"
+        android:duration="150"
+        />
+
+    <item
+        android:drawable="@drawable/nsu_logo13"
+        android:duration="150"
+        />
+    <item
+        android:drawable="@drawable/nsu_logo13"
+        android:duration="150"
+        />
+    <item
+        android:drawable="@drawable/nsu_logo13"
+        android:duration="150"
+        />
+    <item
+        android:drawable="@drawable/nsu_logo13"
+        android:duration="150"
+        />
+</animation-list>
